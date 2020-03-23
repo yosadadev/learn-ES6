@@ -16,42 +16,42 @@
 const userLeft = true
 const userWatchingCatMeme = false
 
-// function watchTutorialCallback(callback, errorCallback){
-//     if (userLeft) {
-//         errorCallback({
-//             name : 'User Left',
-//             message : ':('
-//         })
-//     } else if (userWatchingCatMeme) {
-//         errorCallback({
-//             name : 'User watching cat meme',
-//             message : 'WebDevSimplified < Cat'
-//         })
-//     } else {
-//         callback('Thumbs up subscribe')             
-//     }
-// }
+function watchTutorialCallback(callback, errorCallback) {
+    if (userLeft) {
+        errorCallback({
+            name: 'User Left',
+            message: ':('
+        })
+    } else if (userWatchingCatMeme) {
+        errorCallback({
+            name: 'User watching cat meme',
+            message: 'WebDevSimplified < Cat'
+        })
+    } else {
+        callback('Thumbs up subscribe')
+    }
+}
 
-// watchTutorialCallback((message) => {
-//     console.log('Success : ' + message)
-// }, (error) => {
-//     console.log(error.name + '' + error.message)
-// })
+watchTutorialCallback((message) => {
+    console.log('Success : ' + message)
+}, (error) => {
+    console.log(error.name + '' + error.message)
+})
 
-function watchTutorialPromise(){
+function watchTutorialPromise() {
     return new Promise((resolve, reject) => {
         if (userLeft) {
             reject({
-                name : 'User Left',
-                message : ':('
+                name: 'User Left',
+                message: ':('
             })
         } else if (userWatchingCatMeme) {
             reject({
-                name : 'User watching cat meme',
-                message : 'WebDevSimplified < Cat'
+                name: 'User watching cat meme',
+                message: 'WebDevSimplified < Cat'
             })
         } else {
-            resolve('Thumbs up subscribe')             
+            resolve('Thumbs up subscribe')
         }
     })
 }
